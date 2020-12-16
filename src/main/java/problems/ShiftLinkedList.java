@@ -1,6 +1,5 @@
 package problems;
 
-import facebook.LinkedList;
 
 public class ShiftLinkedList {
      //10-20-30-40-50-60
