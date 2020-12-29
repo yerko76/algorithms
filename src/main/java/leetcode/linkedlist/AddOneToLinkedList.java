@@ -2,13 +2,13 @@ package leetcode.linkedlist;
 
 public class AddOneToLinkedList {
     public static void main(String[] args){
-        ListNode head = addNode(1);
-        head.next = addNode(2);
-        head.next.next = addNode(3);
+        ListNode head = ListNode.addNode(1);
+        head.next = ListNode.addNode(2);
+        head.next.next = ListNode.addNode(3);
 
         var result = execute(head);
 
-        printList(result);
+        ListNode.printList(result);
     }
 
 
@@ -18,7 +18,7 @@ public class AddOneToLinkedList {
         return reverse(addOne);
     }
 
-    private static ListNode addOne(ListNode head){
+    public static ListNode addOne(ListNode head){
         if(head == null) return new ListNode(1);
         ListNode current  = head;
         ListNode temp = null;
@@ -35,13 +35,13 @@ public class AddOneToLinkedList {
         }
 
         if(carry > 0){
-            temp.next = addNode(carry);
+            temp.next = ListNode.addNode(carry);
         }
 
         return current;
     }
 
-    private static ListNode reverse(ListNode head){
+    public static ListNode reverse(ListNode head){
         ListNode curr = head;
         ListNode prev = null;
         ListNode next = null;
@@ -57,21 +57,6 @@ public class AddOneToLinkedList {
         return prev;
     }
     
-    private static void printList(ListNode head){
-        ListNode current = head;
-        while(current != null){
-            System.out.println(current.data);
-            current = current.next;
-        }
-    }
-    
-    private static ListNode addNode(int data){
-        ListNode node = new ListNode();
-        node.data = data;
-        node.next = null;
-        return node;
-    }
-    
 }
 
 class ListNode {
@@ -82,5 +67,20 @@ class ListNode {
 
     public ListNode(int data){
         this.data = data;
+    }
+
+    public static void printList(ListNode head){
+        ListNode current = head;
+        while(current != null){
+            System.out.println(current.data);
+            current = current.next;
+        }
+    }
+    
+    public static ListNode addNode(int data){
+        ListNode node = new ListNode();
+        node.data = data;
+        node.next = null;
+        return node;
     }
 }
